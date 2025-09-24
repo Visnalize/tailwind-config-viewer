@@ -7,7 +7,8 @@
     "email": "ryaneogden@gmail.com"
   },
   "scripts": {
-    "serve": "node cli/index.js -c tailwind.config.sample.js & vue-cli-service serve",
+    "dev": "vue-cli-service serve",
+    "serve": "node cli/index.js -c tailwind.config.sample.js",
     "build": "vue-cli-service build",
     "build:docs": "npm run build && node ./cli export ./docs -c tailwind.config.sample.js",
     "prepublishOnly": "npm run lint --no-fix && npm run build",

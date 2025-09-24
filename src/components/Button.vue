@@ -1,12 +1,6 @@
 <template>
   <button
-    class="
-      py-2 px-4
-      text-sm text-gray-800 dark:text-gray-400
-      border border-gray-400 dark:border-gray-700
-      hover:bg-gray-300 dark-hover:bg-gray-800
-      focus:outline-none rounded
-    "
+    class="dark-hover:bg-gray-800 hover:bg-gray-300 px-4 py-2 border border-gray-400 dark:border-gray-700 rounded focus:outline-none text-gray-800 dark:text-gray-400 text-sm"
     :class="{
       'bg-gray-300 dark:bg-gray-800': selected,
       'bg-white dark:bg-gray-900': !selected
@@ -24,5 +18,5 @@ export default {
       type: Boolean
     }
   }
-}
+};
 </script>

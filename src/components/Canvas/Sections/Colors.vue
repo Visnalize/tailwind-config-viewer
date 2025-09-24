@@ -25,15 +25,15 @@
         </Button>
       </ButtonGroup>
     </StickySectionHeader>
-    <div class="flex flex-wrap -mb-4 mt-6">
+    <div class="flex flex-wrap mt-6 -mb-4">
       <div
         v-for="(value, prop) in selectedColorItems"
         :key="prop"
-        class="w-full md:w-36 mb-4 md:mr-4"
+        class="md:mr-4 mb-4 w-full md:w-36"
       >
         <div
-          class="mb-2 flex-none w-full md:w-36 h-16 md:h-36 flex items-center justify-center"
-          :class="{'border border-gray-300': selectedProp === 'textColor'}"
+          class="flex flex-none justify-center items-center mb-2 w-full md:w-36 h-16"
+          :class="{ 'border border-gray-300': selectedProp === 'textColor' }"
           :style="tileStyle(value)"
         >
           <span
@@ -41,7 +41,9 @@
             :style="{
               color: value
             }"
-            v-if="selectedProp === 'textColor'">Aa</span>
+            v-if="selectedProp === 'textColor'"
+            >Aa</span
+          >
         </div>
         <CanvasBlockLabel
           :label="`${selectedPropClassPrefix}-${prop}`"
@@ -53,10 +55,10 @@
 </template>
 
 <script>
-import CanvasBlockLabel from '../CanvasBlockLabel'
-import ButtonGroup from '../../ButtonGroup'
-import Button from '../../Button'
-import StickySectionHeader from '../../StickySectionHeader'
+import CanvasBlockLabel from '../CanvasBlockLabel';
+import ButtonGroup from '../../ButtonGroup';
+import Button from '../../Button';
+import StickySectionHeader from '../../StickySectionHeader';
 
 export default {
   components: {
@@ -73,42 +75,42 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
       selectedProp: 'backgroundColor'
-    }
+    };
   },
 
   computed: {
-    selectedColorItems () {
-      return this.data[this.selectedProp]
+    selectedColorItems() {
+      return this.data[this.selectedProp];
     },
 
-    selectedPropClassPrefix () {
+    selectedPropClassPrefix() {
       const map = {
         backgroundColor: 'bg',
         textColor: 'text',
         borderColor: 'border'
-      }
+      };
 
-      return map[this.selectedProp]
+      return map[this.selectedProp];
     }
   },
 
   methods: {
-    tileStyle (value) {
+    tileStyle(value) {
       if (this.selectedProp === 'backgroundColor') {
         return {
           backgroundColor: value
-        }
+        };
       }
 
       if (this.selectedProp === 'borderColor') {
         return {
           border: `2px solid ${value}`
-        }
+        };
       }
     }
   }
-}
+};
 </script>

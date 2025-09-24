@@ -1,29 +1,19 @@
 <template>
   <div class="space-y-6">
-    <div
-      v-for="(value, prop) in fixedWidths"
-      :key="prop"
-    >
-      <CanvasSectionRow v-slot="{blockClasses}">
+    <div v-for="(value, prop) in fixedWidths" :key="prop">
+      <CanvasSectionRow v-slot="{ blockClasses }">
         <div
           :class="blockClasses"
           :style="{
             width: value.includes('vw') ? '100%' : value,
-            maxWidth: '100%'
+            maxWidth: '100%',
           }"
         />
       </CanvasSectionRow>
-      <CanvasBlockLabel
-        :label="`w-${prop}`"
-        :value="value"
-      />
+      <CanvasBlockLabel :label="`w-${prop}`" :value="value" />
     </div>
-    <div
-      v-for="(value, prop) in percentWidths"
-      :key="prop"
-      class="mb-6"
-    >
-      <CanvasSectionRow v-slot="{blockClasses}">
+    <div v-for="(value, prop) in percentWidths" :key="prop">
+      <CanvasSectionRow v-slot="{ blockClasses }">
         <div
           :class="blockClasses"
           :style="{
@@ -32,48 +22,54 @@
           }"
         />
       </CanvasSectionRow>
-      <CanvasBlockLabel
-        :label="`w-${prop}`"
-        :value="value"
-      />
+      <CanvasBlockLabel :label="`w-${prop}`" :value="value" />
     </div>
   </div>
 </template>
 
 <script>
-import CanvasBlockLabel from '../CanvasBlockLabel'
-import CanvasSectionRow from '../CanvasSectionRow'
+import CanvasBlockLabel from "../CanvasBlockLabel";
+import CanvasSectionRow from "../CanvasSectionRow";
 
 export default {
   components: {
     CanvasBlockLabel,
-    CanvasSectionRow
+    CanvasSectionRow,
   },
   props: {
     data: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
+    config: {
+      type: Object,
+    },
   },
 
   computed: {
-    percentWidths () {
+    percentWidths() {
       return Object.keys(this.data)
-        .filter(key => this.data[key].indexOf('%') !== -1)
-        .reduce((curr, key) => ({
-          ...curr,
-          [key]: this.data[key]
-        }), {})
+        .filter((key) => this.data[key].indexOf("%") !== -1)
+        .reduce(
+          (curr, key) => ({
+            ...curr,
+            [key]: this.data[key],
+          }),
+          {}
+        );
     },
 
-    fixedWidths () {
+    fixedWidths() {
       return Object.keys(this.data)
-        .filter(key => this.data[key].indexOf('%') === -1)
-        .reduce((curr, key) => ({
-          ...curr,
-          [key]: this.data[key]
-        }), {})
-    }
-  }
-}
+        .filter((key) => this.data[key].indexOf("%") === -1)
+        .reduce(
+          (curr, key) => ({
+            ...curr,
+            [key]: this.data[key],
+          }),
+          {}
+        );
+    },
+  },
+};
 </script>

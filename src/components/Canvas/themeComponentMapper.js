@@ -1,8 +1,14 @@
 /**
  * Maps Canvas components to theme prop in TW config
  */
-export default function themeComponentMapper (theme) {
+export default function themeComponentMapper(theme) {
   return [
+    {
+      themeKey: '_extras',
+      component: 'Extras',
+      title: 'Extra Utilities',
+      data: theme._extras
+    },
     {
       themeKey: 'backgroundColor',
       component: 'Colors',
@@ -140,5 +146,5 @@ export default function themeComponentMapper (theme) {
       title: 'Max Height',
       data: theme.maxHeight
     }
-  ].filter(({ themeKey }) => theme[themeKey])
+  ].filter(({ themeKey }) => theme[themeKey]);
 }

@@ -1,12 +1,10 @@
 <template>
   <div
-    class="mb-2 h-28"
-    :class="{
-      'bg-gray-200 dark:bg-gray-800': hasBg
-    }"
+    class="h-16"
+    :class="{ 'bg-gray-200 dark:bg-gray-800': hasBg }"
     v-bind="$attrs"
   >
-    <slot v-bind:blockClasses="blockClasses"/>
+    <slot v-bind:blockClasses="blockClasses" />
   </div>
 </template>
 
@@ -19,10 +17,10 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
-      blockClasses: 'bg-gray-500 dark:bg-gray-700 h-28'
-    }
+      blockClasses: 'bg-gray-500 dark:bg-gray-700 h-16'
+    };
   }
-}
+};
 </script>

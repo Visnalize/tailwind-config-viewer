@@ -1,10 +1,26 @@
 <template>
   <div>
-    <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-      <input v-model="checked" type="checkbox" :name="name" :id="name" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
-      <label :for="name" class="toggle-label block overflow-hidden h-6 rounded-full cursor-pointer"></label>
+    <div
+      class="inline-block relative mr-2 w-10 align-middle transition duration-200 ease-in select-none"
+    >
+      <input
+        v-model="checked"
+        type="checkbox"
+        :name="name"
+        :id="name"
+        class="block absolute bg-white border-4 rounded-full w-6 h-6 appearance-none cursor-pointer toggle-checkbox"
+      />
+      <label
+        :for="name"
+        class="block rounded-full h-6 overflow-hidden cursor-pointer toggle-label"
+      ></label>
     </div>
-    <label v-if="label" :for="name" class="text-xs text-gray-700 dark:text-gray-500">{{ label }}</label>
+    <label
+      v-if="label"
+      :for="name"
+      class="text-gray-700 dark:text-gray-500 text-xs"
+      >{{ label }}</label
+    >
   </div>
 </template>
 
@@ -27,18 +43,18 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
       checked: this.value
-    }
+    };
   },
 
   watch: {
-    checked (newValue) {
-      this.$emit('input', newValue)
+    checked(newValue) {
+      this.$emit('input', newValue);
     }
   }
-}
+};
 </script>
 <style lang="scss">
 /* CHECKBOX TOGGLE SWITCH */
@@ -80,7 +96,6 @@ export default {
 }
 
 .toggle-checkbox:focus + .toggle-label {
-
 }
 
 .toggle-checkbox:checked + .toggle-label {

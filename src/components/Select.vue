@@ -3,20 +3,25 @@
     <svg
       class="absolute pointer-events-none"
       style="right: 10px; top: calc(50% - 6px);"
-      width="11" height="11" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.657 4.243h3.76a.2.2 0 0 1 .141.341l-3.76 3.76a.2.2 0 0 1-.283 0l-3.76-3.76a.2.2 0 0 1 .142-.341h3.76z" fill="#B8C2CC"></path></svg>
+      width="11"
+      height="11"
+      viewBox="0 0 9 9"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.657 4.243h3.76a.2.2 0 0 1 .141.341l-3.76 3.76a.2.2 0 0 1-.283 0l-3.76-3.76a.2.2 0 0 1 .142-.341h3.76z"
+        fill="#B8C2CC"
+      ></path>
+    </svg>
     <select
       id="transition-duration"
-      class="
-        h-full w-full
-        px-4 py-2
-        border
-        border-gray-400 dark:border-gray-700 focus:outline-none
-        bg-white dark:bg-gray-900
-        text-gray-800 dark:text-gray-400
-        rounded text-sm appearance-none"
+      class="bg-white dark:bg-gray-900 px-4 py-2 border border-gray-400 dark:border-gray-700 rounded focus:outline-none w-full h-full text-gray-800 dark:text-gray-400 text-sm appearance-none"
       v-model="selected"
     >
-      <option v-for="(value, key) in options" :key="key" :value="key">{{ value }}</option>
+      <option v-for="(value, key) in options" :key="key" :value="key">{{
+        value
+      }}</option>
     </select>
   </div>
 </template>
@@ -35,16 +40,16 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
       selected: this.value
-    }
+    };
   },
 
   watch: {
-    selected (newValue) {
-      this.$emit('input', newValue)
+    selected(newValue) {
+      this.$emit('input', newValue);
     }
   }
-}
+};
 </script>

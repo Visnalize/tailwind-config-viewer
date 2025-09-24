@@ -3,10 +3,10 @@
     <div
       v-for="(value, prop) in data"
       :key="prop"
-      class="w-full md:w-36 md:mr-4 mb-4"
+      class="md:mr-4 mb-4 w-full md:w-36"
     >
       <div
-        class="mb-2 h-36 bg-gray-200 dark:bg-gray-800 border-gray-500 dark:border-gray-700"
+        class="bg-gray-200 dark:bg-gray-800 mb-2 border-gray-500 dark:border-gray-700 h-16"
         :style="{
           borderWidth: value
         }"
@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import CanvasBlockLabel from '../CanvasBlockLabel'
-import { removeDefaultSuffix } from '@/utils'
+import CanvasBlockLabel from '../CanvasBlockLabel';
+import { removeDefaultSuffix } from '@/utils';
 
 export default {
   components: {
@@ -38,5 +38,5 @@ export default {
   methods: {
     removeDefaultSuffix
   }
-}
+};
 </script>
